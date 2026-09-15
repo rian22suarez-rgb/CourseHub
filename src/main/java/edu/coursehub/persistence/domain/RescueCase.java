@@ -59,7 +59,9 @@ public class RescueCase {
     public RescueStatus getStatus() { return status; }
     public RescueCenter getRescueCenter() { return rescueCenter; }
     public Animal getAnimal() { return animal; }
-
+    public void setStatus(RescueStatus status) {
+        this.status = status;
+    }
     public void setRescueCenter(RescueCenter rescueCenter) {
         this.rescueCenter = rescueCenter;
     }
