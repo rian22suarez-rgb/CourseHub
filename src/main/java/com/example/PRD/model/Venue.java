@@ -39,6 +39,9 @@ public class Venue {
         this.capacity = capacity;
         this.active = active;
     }
+    public boolean isActive() {
+    return Boolean.TRUE.equals(active);
+}
 
     // Getters y Setters
     public Long getId() { return id; }

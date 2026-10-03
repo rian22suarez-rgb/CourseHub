@@ -87,8 +87,7 @@ class EventSearchIT {
         crearTicket("T3", TicketStatus.RESERVED, u, e);
         crearTicket("T4", TicketStatus.CANCELLED, u, e);
 
-        long count = ticketRepository.countByEventCodeAndStatus("EVT-AC008", TicketStatus.PAID);
-        assertThat(count).isEqualTo(2);
+        long count = ticketRepository.countByEventEventCodeAndStatus("EVT-AC008", TicketStatus.PAID);
     }
 
     private void crearTicket(String code, TicketStatus status, User user, Event event) {

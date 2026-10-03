@@ -15,16 +15,15 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     Optional<Ticket> findByTicketCode(String ticketCode);
 
-    // Sección 14: tickets de un usuario por email (ignorando mayúsculas)
     List<Ticket> findByUserEmailIgnoreCase(String email);
 
-    // Sección 14: tickets de un usuario por email y status
     List<Ticket> findByUserEmailIgnoreCaseAndStatus(String email, TicketStatus status);
 
-    // FR-TKT-007: tickets PAID de un evento por eventCode
+    List<Ticket> findByUserEmailIgnoreCaseOrderByPurchaseDateDesc(String email);
+
     List<Ticket> findByEventEventCodeAndStatus(String eventCode, TicketStatus status);
 
-    // FR-TKT-008: conteo de tickets PAID por eventCode
     @Query("SELECT COUNT(t) FROM Ticket t WHERE t.event.eventCode = :eventCode AND t.status = :status")
-    long countByEventCodeAndStatus(@Param("eventCode") String eventCode, @Param("status") TicketStatus status);
+    long countByEventEventCodeAndStatus(@Param("eventCode") String eventCode,
+                                        @Param("status") TicketStatus status);
 }
